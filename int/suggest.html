@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #303030, #1a1a1a);
+      color: #fff;
+      font-family: 'PT Sans', sans-serif;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    #container {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+
+    select, textarea, button {
+      margin: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-family: 'PT Sans', sans-serif;
+      width: 100%;
+      box-sizing: border-box;
+      transition: height 0.3s;
+    }
+
+    select {
+      background: #444;
+      color: #fff;
+    }
+
+    textarea {
+      background: #555;
+      color: #fff;
+      min-height: 40px; /* Set a minimum height to avoid being too small */
+      resize: none;
+      overflow-y: hidden; /* Hide vertical scrollbar initially */
+    }
+
+    button {
+      background: #007BFF;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      background: #999;
+      cursor: not-allowed;
+    }
+
+    .cooldown {
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <select id="areaDropdown">
+      <option value="Centennial">Centennial</option>
+      <option value="Edmundo">Edmundo "Eddie" Escobedo</option>
+      <option value="Arborview">Arborview</option>
+      <option value="MSD">MSD</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <br>
+
+    <textarea id="suggestionInput" placeholder="Type your suggestion" oninput="resizeInput()" maxlength="500"></textarea>
+
+    <br>
+
+    <button id="sendButton" onclick="sendMessage()">➤</button>
+    <p id="cooldownMessage" class="cooldown"></p>
+  </div>
+
+  <script>
+    let cooldown = false;
+    let cooldownTimer;
+
+    function resizeInput() {
+      const input = document.getElementById('suggestionInput');
+      input.style.height = 'auto';
+      input.style.height = `${Math.min(150, input.scrollHeight)}px`;
+    }
+
+    function sendMessage() {
+      if (!cooldown) {
+        const area = document.getElementById('areaDropdown').value;
+        const suggestion = document.getElementById('suggestionInput').value;
+
+        if (suggestion.trim() !== '') {
+          const embed = {
+            title: area,
+            description: suggestion,
+          };
+
+          // Discord webhook URL
+          const webhookUrl = 'https://discord.com/api/webhooks/1193385202387538092/oQbYrcyvZa431jPJI-Nbu8XQ1BLlkEJmT37GyhV7yzdLsm40_n9WDDAHvR2qn93foKNr';
+
+          const payload = {
+            embeds: [embed],
+          };
+
+          // Send the payload to Discord
+          fetch(webhookUrl, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+          })
+          .then(response => {
+            if (response.ok) {
+              console.log('Embed Sent to Discord:', embed);
+              // Reset the input and adjust styles as needed
+              document.getElementById('suggestionInput').value = '';
+              resizeInput();
+            } else {
+              console.error('Error sending embed to Discord:', response.statusText);
+            }
+          })
+          .catch(error => {
+            console.error('Error sending embed to Discord:', error.message);
+          });
+
+          // Add cooldown
+          cooldown = true;
+          document.getElementById('sendButton').disabled = true;
+          startCooldownTimer();
+
+          setTimeout(() => {
+            cooldown = false;
+            document.getElementById('sendButton').disabled = false;
+            document.getElementById('cooldownMessage').textContent = '';
+            clearInterval(cooldownTimer);
+          }, 15000);
+        }
+      }
+    }
+
+    function startCooldownTimer() {
+      let remainingTime = 15;
+      cooldownTimer = setInterval(() => {
+        document.getElementById('cooldownMessage').textContent = `Cooldown: ${remainingTime}s`;
+        remainingTime--;
+
+        if (remainingTime < 0) {
+          clearInterval(cooldownTimer);
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

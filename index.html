@@ -35,20 +35,43 @@ window.onload = checkAndRedirect;
     function hideDiscordWidget() {
       var iframe = document.getElementById("discord-widget");
       iframe.style.display = "none";
+
+      function navigate(url) {
+        window.location.href = url;
+      }
     }
   </script>
   <header>
     <h1>Apollo v2.06 (Beta)</h1>
+    <p class="invite-code">ThBKJUuw6u</p>
     <img src="img/gg2.png" alt="ggl" title="Join the Discord!" class="gg-logo" onclick="navigate('https://discord.com/invite/ThBKJUuw6u')" onmouseover="showDiscordWidget()" onmouseout="hideDiscordWidget()">
     <iframe id="discord-widget" style="display: none; position: absolute; top: 0; left: 0; width: 350px; height: 500px; border: none;" src="https://canary.discord.com/widget?id=1043038651271086161&theme=dark" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
   </header>
   <div class="container">
     <aside class="sidebar">
+      <script>
+                  function openTab() {
+                  var ccsdWindow = window.open("about:blank#suggest", "suggest");
+      
+                  if (ccsdWindow) {
+                      var iframe = document.createElement("iframe");
+                      iframe.src = "https://board.bimbos.dev/int/suggest.html";
+                      iframe.style.position = "fixed";
+                      iframe.style.top = "0";
+                      iframe.style.left = "0";
+                      iframe.style.width = "100%";
+                      iframe.style.height = "100%";
+                      iframe.style.border = "none";
+                      ccsdWindow.document.body.appendChild(iframe);
+                  } else {
+                      alert("Pop-up blocked. Please enable pop-ups for this website.");
+                  }
+              }
+      </script>
       <h2>Apollo</h2>
       <nav>
         <ul>
           <li><button class="fill" onclick="navigate('int/uv.html')">Ultraviolet</button></li>
-          <li><button class="fill" onclick="navigate('int/flow-os.html')">Flow OS</button></li>
           <li><button class="fill" onclick="navigate('int/gpt-v2.html')">GPT v2</button></li>
           <li><button class="fill" title="Sometimes doesn't work." onclick="navigate('int/radon.html')">Radon</button></li>
           <li><button class="fill" title="Sometimes doesn't work." onclick="navigate('int/chatroom.html')">Chatroom</button></li>
@@ -61,13 +84,8 @@ window.onload = checkAndRedirect;
     <main>
       <p>I am currently busy, and resources won't be updated for the time-being.</p>
       <changelog>
-        <h3>11/17/23</h3> Posted by fierce <text class="backtick" id="time-difference-1"></text>
-        <p>[+] Fixed Eaglercraft Booter</p>
-        <p>[+] Fixed Cookie Clicker</p>
-        <p>[+] Slope</p>
-        <p>[+] Run 3</p>
-        <p>[+] Ultraviolet Fixed</p>
-        <p>[+] Chatroom Fixed</p>
+        <h2>SUGGESTIONS</h2>  <!--<text class="backtick" id="time-difference-1"></text>-->
+        <button class="fill" onclick="openTab()">CLICK ME FOR SUGGESTIONS</button>
       </changelog>
       <script src="int/design/script.js"></script>
       <script src="int/design/time.js"></script>

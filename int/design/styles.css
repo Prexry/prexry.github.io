@@ -201,6 +201,16 @@ a:hover {
   cursor: pointer;
 }
 
+button.fill {
+  background-color: #2e3548;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
 .sidebar button.red {
   background-color: #E52222;
   color: #fff;
@@ -304,6 +314,14 @@ header {
   position: absolute;
   top: 15px;
   right: 15px;
+  max-height: 30px;
+  max-width: 30px;
+}
+
+.invite-code {
+  position: absolute;
+  top: 20px;
+  right: 80px;
   max-height: 30px;
   max-width: 30px;
 }
