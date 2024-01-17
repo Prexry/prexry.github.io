@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
 <title>Geometry Dash</title>
-<link href="./geodash/style.css" rel="stylesheet" type="text/css">
+<link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body onload="init();">
 <div id="container">
@@ -14,7 +14,7 @@
 	<div id="frontpage" id="frontpage">
 		<div id="header"><SCRIPT language="Javascript">var cpmstar_rnd=Math.round(Math.random()*999999);var cpmstar_pid=71339;document.writeln("<SCR"+"IPT language='Javascript' src='//server.cpmstar.com/view.aspx?poolid="+cpmstar_pid+"&script=1&rnd="+cpmstar_rnd+"'></SCR"+"IPT>");</SCRIPT></div>
 		<div id="frontpage_text">
-			<img src="./geodash/logo.png" style="width:460px;">
+			<img src="logo.png" style="width:460px;">
 			<br>
 			<span onclick="change_level(-1);" style="cursor:pointer;"><</span> LEVEL <span id="level_number">1</span> <span onclick="change_level(1);" style="cursor:pointer;">></span>
 			<div onclick="start_game();" style="cursor:pointer;margin-top:14px;"><img src="./geodash/playbutton.png" style="width:50px;"></div>
@@ -23,10 +23,10 @@
 			</div>
 			<a href="#" target="_BLANK"><span id="moreGames">Apollo</span></a>
 		</div>
-		<img src="./geodash/trap2.png" id="trap_sprite" style="width:1px;">
-		<img src="./geodash/spike.png" id="spike_sprite" style="width:1px;">
-		<img src="./geodash/block.png" id="block_sprite" style="width:1px;">
-		<img src="./geodash/geomdashmain.png" id="main_sprite" style="width:1px;">
+		<img src="trap2.png" id="trap_sprite" style="width:1px;">
+		<img src="spike.png" id="spike_sprite" style="width:1px;">
+		<img src="block.png" id="block_sprite" style="width:1px;">
+		<img src="geomdashmain.png" id="main_sprite" style="width:1px;">
 	</div>
 	<div id="level_complete">
 		<div id="lc_attempts" style="position:absolute;top:122px;left:280px;">1</div>
@@ -35,10 +35,10 @@
 		<div id="lc_retry" style="position:absolute;top:273px;left:77px;width:68px;height:68px;cursor:pointer;" onclick="retry();"></div>
 		<div id="lc_menu"style="position:absolute;top:273px;left:306px;width:68px;height:68px;cursor:pointer;" onclick="menu();"></div>
 	</div>
-	<div id="preload_div"><div style="width:300px;height:250px;margin-left:170px;margin-top:30px;"><SCRIPT language="Javascript">var cpmstar_rnd=Math.round(Math.random()*999999);var cpmstar_pid=71337;document.writeln("<SCR"+"IPT language='Javascript' src='//server.cpmstar.com/view.aspx?poolid="+cpmstar_pid+"&script=1&rnd="+cpmstar_rnd+"'></SCR"+"IPT>");</SCRIPT></div><br><span id="preload_continue" onclick="preload_hide();">Loading...</span><script src="./geodash/preload.js"></script></div>
+	<div id="preload_div"><div style="width:300px;height:250px;margin-left:170px;margin-top:30px;"><SCRIPT language="Javascript">var cpmstar_rnd=Math.round(Math.random()*999999);var cpmstar_pid=71337;document.writeln("<SCR"+"IPT language='Javascript' src='//server.cpmstar.com/view.aspx?poolid="+cpmstar_pid+"&script=1&rnd="+cpmstar_rnd+"'></SCR"+"IPT>");</SCRIPT></div><br><span id="preload_continue" onclick="preload_hide();">Loading...</span><script src="preload.js"></script></div>
 </div>
- <script src="./geodash/geomdash.js"></script>
+ <script src="geomdash.js"></script>
 
- <script src="./geodash/ga.js"></script>
+ <script src="ga.js"></script>
   </body>
 </html>
