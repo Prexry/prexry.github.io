@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="design/games.css">
+    <script async src="https://arc.io/widget.min.js#zF5c1y2k"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8048595599330262" crossorigin="anonymous"></script>
+    <script>
+        function navigate(url) {
+            window.location.href = url;
+        }
+    </script>
+</head>
+<body>
+
+<div class="category-box">
+    <div class="category" id="1v1">
+        <img src="https://static.wikia.nocookie.net/gamia_gamepedia_en/images/c/c9/1v1LOL.png" alt="1v1.lol">
+        <h4>1v1.lol</h4>
+        <button onclick="navigate('1v1/index.html')" class="play-button">Play</button>
+    </div>
+
+    <div class="category" id="slope">
+        <img src="https://geometry-dash.co/upload/imgs/slope-game-logo4.jpg" alt="Slope">
+        <h4>Slope</h4>
+        <button onclick="navigate('slope/index.html')" class="play-button">Play</button>
+    </div>
+</div>
+
+<div class="category-box">
+    <div class="category" id="run3">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/35/Geometry_Dash_Logo.PNG/250px-Geometry_Dash_Logo.PNG" alt="Geometry Dash">
+        <h4>Geometry Dash</h4>
+        <button onclick="navigate('griffdash/index.html')" class="play-button">Play</button>
+    </div>
+
+    <div class="category" id="eaglercraft">
+        <img src="https://static.wikia.nocookie.net/phantomsoldier/images/c/cf/1v1.lol.png/revision/latest?cb=20220312020929" alt="none">
+        <h4>Empty</h4>
+        <button disabled onclick="navigate('#')" class="play-button">Play</button>
+    </div>
+</div>
+
+<!-- Side-by-Side Section -->
+<div class="side-by-side">
+    <div class="option" id="option1" onclick="navigate('games.html')">Page 1</div>
+    <div class="option" id="option2" style="background-color: blue;" onclick="navigate('#')">Page 2</div>
+</div>
+<div>Choose Page Above</div>
+
+</body>
+</html>

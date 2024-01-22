@@ -375,21 +375,21 @@ text.backtick::after {
   left: 0;
 }
 
+.side-by-side {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* Adjust margin as needed */
+}
 
+.option {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#option1 {
+  background-color: blue;
+}
