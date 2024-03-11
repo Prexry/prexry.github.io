@@ -90,6 +90,38 @@ a:hover {
   margin-bottom: 10px;
   cursor: pointer;
 }
+
+.sidebar button.rainbow {
+  background-color: violet; /* Initial background color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  animation: colorChangeAnimation 8s linear infinite; /* Animation duration and timing */
+}
+
+@keyframes colorChangeAnimation {
+  0% {
+    background-color: violet; /* Start with violet */
+  }
+  20% {
+    background-color: indigo; /* Transition to indigo at 20% */
+  }
+  40% {
+    background-color: blue; /* Transition to blue at 40% */
+  }
+  60% {
+    background-color: green; /* Transition to green at 60% */
+  }
+  80% {
+    background-color: yellow; /* Transition to yellow at 80% */
+  }
+  100% {
+    background-color: orange; /* End with orange at 100% */
+  }
+}
 div.reference {
   position: fixed;
   bottom: 0;
@@ -127,6 +159,12 @@ h1 {
   color: #ffffff;
 }
 
+header.rainbow {
+  background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red); /* Rainbow text gradient */
+  -webkit-background-clip: text; /* Clip text to background */
+  color: transparent; /* Hide original text */
+  animation: textColorChangeAnimation 8s linear infinite; /* Animation for text color change */
+}
 /* Main content and sidebar styles */
 .container {
   display: flex;
