@@ -40,53 +40,38 @@
     </style>
 </head>
 <body>
+    <a href="../" title="Back" class="back-button" style="position:fixed;top:20px;left:20px;padding:10px 20px;background-color:#333;color:#fff;text-decoration:none;border-radius:5px;transition:background-color 0.3s ease; z-index: 999;">⬅</a>
     <div class="booter-box">
-        <a href="prec.html" class="booter-button">Precision Client</a>
-        <a href="Resent/index.html" class="booter-button">Resent Client</a>
+        <a href="javascript:void(0)" onclick="openCCSDPopup()" class="booter-button">Precision Client</a>
+        <a href="javascript:void(0)" onclick="openResentPopup()" class="booter-button">Resent Client</a>
     </div>
 
     <script>
-        function openCCSDWindow() {
-            // Open a new window with about:blank and name it "CCSD"
-            var ccsdWindow = window.open("about:blank", "CCSD");
-
-            if (ccsdWindow) {
-                // Create an iframe element
-                var iframe = document.createElement("iframe");
-                iframe.src = "https://weare.clarkcounty.shop/int/mine/prec.html";
-                iframe.style.position = "fixed";
-                iframe.style.top = "0";
-                iframe.style.left = "0";
-                iframe.style.width = "100%";
-                iframe.style.height = "100%";
-                iframe.style.border = "none";
-
-                // Append the iframe to the new window's document body
-                ccsdWindow.document.body.appendChild(iframe);
+        function openCCSDPopup() {
+            var popupWindow = window.open('about:blank', 'Eaglercraft', 'width=' + screen.availWidth + ',height=' + screen.availHeight + ',top=0,left=0,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no');
+            if (popupWindow) {
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://weare.clarkcounty.shop/int/mine/prec.html';
+                iframe.style.border = 'none';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                popupWindow.document.body.appendChild(iframe);
             } else {
-                alert("Pop-up blocked. Please enable pop-ups for this website.");
+                alert("Popup blocked. Please allow popups for this site.");
             }
         }
-        
-        function openResentWindow() {
-            // Open a new window with about:blank and name it "CCSD"
-            var ccsdWindow = window.open("about:blank", "CCSD");
 
-            if (ccsdWindow) {
-                // Create an iframe element
-                var iframe = document.createElement("iframe");
-                iframe.src = "https://weare.clarkcounty.shop/int/mine/Resent/index.html";
-                iframe.style.position = "fixed";
-                iframe.style.top = "0";
-                iframe.style.left = "0";
-                iframe.style.width = "100%";
-                iframe.style.height = "100%";
-                iframe.style.border = "none";
-
-                // Append the iframe to the new window's document body
-                ccsdWindow.document.body.appendChild(iframe);
+        function openResentPopup() {
+            var popupWindow = window.open('about:blank', 'Eaglercraft', 'width=' + screen.availWidth + ',height=' + screen.availHeight + ',top=0,left=0,toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no');
+            if (popupWindow) {
+                var iframe = document.createElement('iframe');
+                iframe.src = 'https://weare.clarkcounty.shop/int/mine/Resent/index.html';
+                iframe.style.border = 'none';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                popupWindow.document.body.appendChild(iframe);
             } else {
-                alert("Pop-up blocked. Please enable pop-ups for this website.");
+                alert("Popup blocked. Please allow popups for this site.");
             }
         }
     </script>

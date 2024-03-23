@@ -1,28 +1,73 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
-  <script async src="https://arc.io/widget.min.js#pBGDrxu5"></script>
   <link rel="icon" type="image/x-icon" href="../img/dshboard.ico" />
-  <script>
-    (function() {window.onbeforeunload=function() {return "Not this time.";}})()
-  </script>
   <link rel="stylesheet" href="design/loading.css">
   <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      position: relative;
+    }
+    .button-bar {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      z-index: 999;
+    }
+    .back-button, .refresh-button {
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50%;
+      transition: background-color 0.3s ease;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .back-button:hover, .refresh-button:hover {
+      background-color: #555;
+    }
+    .back-button::before, .refresh-button::before {
+      content: '⬅';
+    }
+    .refresh-button::before {
+      content: '↻';
+    }
+    .msg {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
     #myIframe {
       display: none;
+      width: 100%;
+      height: 100%;
+      border: none;
     }
   </style>
 </head>
 <body>
+  <div class="button-bar">
+    <a href="../" title="Back" class="back-button"></a>
+    <a href="#" title="Refresh" class="refresh-button" onclick="refreshIframe()"></a>
+  </div>
+
   <div class="msg">
     <div class="lds-dual-ring"></div>
-    <p class="info" id="loading-message">
-      Loading..
-    </p>
+    <p class="info" id="loading-message">Loading..</p>
   </div>
-  <body style="margin: 0px; height: 100vh;">
-    <iframe id="myIframe" src="https://search.clarkcounty.shop" style="border: none; width: 100%; height: 100%; margin: 0px;"></iframe>
-  </body>
+
+  <iframe id="myIframe" src="https://search.clarkcounty.shop"></iframe>
+
   <script>
     var messages = [
       "This might take a while, maybe grab a drink?",
@@ -34,6 +79,7 @@
     var originalMessage = "Loading..";
     var myIframe = document.getElementById('myIframe');
     var loadingMessage = document.getElementById('loading-message');
+
     setInterval(function() {
       if (currentIndex === 0) {
         loadingMessage.innerText = originalMessage;
@@ -42,11 +88,17 @@
       }
       currentIndex = (currentIndex + 1) % (messages.length + 1);
     }, 3000);
-    /*setTimeout(function() {   window.location.reload(); }, 60000);*/
+
     myIframe.onload = function() {
       var msg = document.querySelector('.msg');
       msg.parentNode.removeChild(msg);
       myIframe.style.display = 'block';
     };
+
+    function refreshIframe() {
+      var iframe = document.getElementById('myIframe');
+      iframe.src = iframe.src;
+    }
   </script>
 </body>
+</html>
